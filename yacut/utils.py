@@ -10,5 +10,7 @@ def get_unique_short_id():
         choice(letters_digits) for _ in range(6)
     )
     if URL_map.query.filter_by(short=random_string).first():
+        # Это ведь рекурсивный вызов. Пока значение неуникально, глубина
+        # рекурсии увеличивается.
         random_string = get_unique_short_id()
     return random_string

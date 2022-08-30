@@ -1,3 +1,4 @@
+from http import HTTPStatus
 from re import fullmatch
 
 from flask import jsonify, request
@@ -28,12 +29,14 @@ def create_url():
     url_map.from_dict(data)
     db.session.add(url_map)
     db.session.commit()
-    return jsonify(url_map.to_dict()), 201
+    return jsonify(url_map.to_dict()), HTTPStatus.CREATED.value
 
 
 @app.route('/api/id/<string:short_id>/', methods=['GET'])
 def get_url(short_id):
     url_map = URL_map.query.filter_by(short=short_id).first()
     if not url_map:
-        raise InvalidAPIUsage('Указанный id не найден', 404)
-    return jsonify(url=url_map.original), 200
+        raise InvalidAPIUsage(
+            'Указанный id не найден', HTTPStatus.NOT_FOUND.value
+        )
+    return jsonify(url=url_map.original), HTTPStatus.OK.value

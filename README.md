@@ -1,16 +1,14 @@
 # Укоротитель ссылок YaCut
-Учебный проект в рамках курса Яндекс.Практикум
 
-## Описание
-Проект YaCut — это сервис укорачивания ссылок. Его ключевые возможности:
-- генерация коротких ссылок (пользовательская или предлагаемая сервисом) 
-и связь их с исходными длинными ссылками,
-- переадресация на исходный адрес при обращении к коротким ссылкам.
+YaCut project is the web-links cutting service. Its key features:
+- short links generation (by user / offered by the service) and
+connection to initial long links,
+- redirection to initial addres when accessing short links.
 
-Также всем желающим доступен API проекта.
-<details><summary><h4> Примеры запросов к API </h4></summary>
+Also there is API available for everyone.
+<details><summary><h4> API request examples </h4></summary>
 
-- Генерация короткой ссылки: 
+- Short link generation: 
     ```SQL
     POST /api/id/
     {
@@ -19,61 +17,61 @@
     }
     ```
 
-- Получение оригинальной ссылки по указанному короткому идентификатору:
+- Get original link by specified short id:
     ```SQL
     GET /api/id/{short_id}/
     ```
 
 </details>
 
-## Технологии
+## Technologies
 - Python 3.7
 - Flask 2.0.2
 - REST API
 - SQLAlchemy
 - HTML
 
-## Установка и запуск проекта локально
-<details><summary> Инструкции </summary>
+## Project installation and local launch
+<details><summary> Instructions </summary>
 
-- Клонировать репозиторий и перейти в него в командной строке:
+- Clone the repository follow it via the command line:
 
     ```bash
     git clone https://github.com/photometer/yacut
     cd yacut
     ```
 
-- Cоздать и активировать виртуальное окружение:
+- Create and activate virtual environment:
 
-    * Если у вас Linux/MacOS
+    * For Linux/MacOS
         ```bash
         python3 -m venv venv
         source venv/bin/activate
         ```
 
-    * Если у вас windows
+    * For windows
         ```bash
         python -m venv venv
         source venv/scripts/activate
         ```
 
-- Установить необходимые зависимости:
+- Install necessary requirements:
 
     ```bash
     python -m pip install --upgrade pip
     pip install -r requirements.txt
     ```
 
-- Не забудьте создать файл `.env` и наполнить его:
+- Don't forget to creaet `.env` file and fill it up:
 
     ```
     DATABASE_URI=<dialect+driver://username:password@host:port/database>
     FLASK_APP=yacut
     FLASK_ENV=development
-    SECRET_KEY=<Ваш_секретный_ключ>
+    SECRET_KEY=<Your_secret_key>
     ```
 
-- Создать файл базы данных и таблицы в нем:
+- Create database file and tables in it:
 
     ```bash
     flask shell
@@ -81,7 +79,7 @@
     >>> db.create_all()
     ```
 
-- Запустить локально:
+- Launch locally:
 
     ```bash
     flask run
@@ -89,5 +87,5 @@
 
 </details>
 
-## Автор
-Лиза Андросова :dizzy:
+## Author
+Liza Androsova :dizzy:

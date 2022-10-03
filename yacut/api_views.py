@@ -15,16 +15,16 @@ def create_url():
 
     data = request.get_json()
     if not data:
-        raise InvalidAPIUsage('Отсутствует тело запроса')
+        raise InvalidAPIUsage('Request body missing')
     if not data.get('url'):
-        raise InvalidAPIUsage('"url" является обязательным полем!')
+        raise InvalidAPIUsage('"url" is required field!')
     short_id = data.get('custom_id')
     if not short_id:
         data['custom_id'] = get_unique_short_id()
     elif URL_map.query.filter_by(short=short_id).first():
-        raise InvalidAPIUsage(f'Имя "{short_id}" уже занято.')
+        raise InvalidAPIUsage(f'Name "{short_id}" is already taken.')
     elif not fullmatch(PATTERN, short_id):
-        raise InvalidAPIUsage('Указано недопустимое имя для короткой ссылки')
+        raise InvalidAPIUsage('Invalid name specified for short link')
     url_map = URL_map()
     url_map.from_dict(data)
     db.session.add(url_map)
@@ -37,6 +37,6 @@ def get_url(short_id):
     url_map = URL_map.query.filter_by(short=short_id).first()
     if not url_map:
         raise InvalidAPIUsage(
-            'Указанный id не найден', HTTPStatus.NOT_FOUND.value
+            'Specified id was not found', HTTPStatus.NOT_FOUND.value
         )
     return jsonify(url=url_map.original), HTTPStatus.OK.value

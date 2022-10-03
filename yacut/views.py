@@ -14,7 +14,7 @@ def index_view():
         if not short:
             short = get_unique_short_id()
         elif URL_map.query.filter_by(short=short).first():
-            flash(f'Имя {short} уже занято!')
+            flash(f'Name {short} is already taken!')
             return render_template('index.html', form=form)
         url_map = URL_map(
             original=form.original_link.data,

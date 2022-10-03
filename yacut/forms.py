@@ -5,11 +5,11 @@ from wtforms.validators import DataRequired, Length, Optional
 
 class URLForm(FlaskForm):
     original_link = URLField(
-        'Длинная ссылка',
-        validators=[DataRequired(message='Обязательное поле'), ]
+        'Long link',
+        validators=[DataRequired(message='Required field'), ]
     )
     custom_id = StringField(
-        'Ваш вариант короткой ссылки',
+        'Your option for short link',
         validators=[Length(max=16), Optional()]
     )
-    submit = SubmitField('Создать')
+    submit = SubmitField('Generate')

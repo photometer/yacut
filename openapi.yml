@@ -1,5 +1,5 @@
 info:
-  title: Проект YaCut
+  title: YaCut project
   version: 0.1.0
 tags: []
 paths:
@@ -24,15 +24,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
               examples:
-                Пустой запрос:
+                Empty request:
                   value:
-                    message: Отсутствует тело запроса
-                Недопустимый короткий идентификатор:
+                    message: Request body missing
+                Invalid short id:
                   value:
-                    message: "Указано недопустимое имя для короткой ссылки"
-                Отсутствует обязательное поле:
+                    message: "Invalid name specified for short link"
+                Required field missing:
                   value:
-                    message: '"url" является обязательным полем!'
+                    message: '"url" is required field!'
           description: Not found
       summary: Create Id
   /api/id/{short_id}/:
@@ -56,9 +56,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
               examples:
-                Несуществующий id:
+                Non-existing id:
                   value:
-                    message: Указанный id не найден
+                    message: Specified id was not found
           description: Not found
       summary: Get Url
 openapi: 3.0.3
@@ -74,7 +74,7 @@ components:
         url:
           type: string
       type: object
-      description: Получение ссылки по идентификатору
+      description: Get link by id
     create_id:
       properties:
         url:
@@ -82,7 +82,7 @@ components:
         short_link:
           type: string
       type: object
-      description: Генерация новой ссылки
+      description: New link generation
     create_id_rec:
       properties:
         url:
@@ -92,4 +92,4 @@ components:
       type: object
       required:
           - url
-      description: Генерация новой ссылки
+      description: New link generation

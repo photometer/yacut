@@ -1,4 +1,4 @@
-# Link shortener YaCut
+# YaCut link shortener
 
 YaCut project is the web-links cutting service. Its key features:
 - short links generation (by user / offered by the service) and

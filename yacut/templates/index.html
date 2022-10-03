@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block title %}YaCut - укоротитель ссылок{%endblock %}
+{% block title %}YaCut link shortener {%endblock %}
 {% block content %}
   <main>
     <section class="container my-5 px-4">
       <h1 class="text-center"><span style="color:red">Ya</span>Cut</h1>
       <p class="text-center my-4">
-        Создайте короткую ссылку автоматически или предложите свой вариант
+        Create short link automatically or suggest your option
       </p>
 
       <div class="container">
@@ -33,7 +33,7 @@
                   {% endif %}
                 </div>
 
-                <input type="submit" class="btn btn-primary" value="Создать">
+                <input type="submit" class="btn btn-primary" value="Generate">
               </div>
             </form>
           </div>
@@ -54,7 +54,7 @@
                 {% endfor %}
               {% endif %}
               {% if short %}
-                <h5 class="text-center">Ваша новая ссылка готова:</h5>
+                <h5 class="text-center">Your new link is ready:</h5>
                 <p class="text-center fw-bold">
                   <a href="{{ url_for('redirect_view', custom_id=short, _external=True) }}">
                     {{ url_for('redirect_view', custom_id=short, _external=True) }}

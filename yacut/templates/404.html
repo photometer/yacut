@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
-{% block title %}404. Если тут что-то было, теперь этого тут нет.{% endblock %}
+{% block title %}404. If there was something, now it's not here.{% endblock %}
 {% block content %}
 <main>
   <section class="container my-5">
     <div class="row">
       <div class="col-12 col-lg-7 my-5">
-        <h1 class="mb-5">Упс... Что-то пошло не так!</h1>
-        <p>Кажется, этот ресурс обрезали... Либо он и не существовал...</p>
+        <h1 class="mb-5">Oops... Something went wrong!</h1>
+        <p>Looks like this resource has been cut... Or it didn't exist...</p>
         <p>
-          <a href="{{ url_for('index_view') }}">Вернуться на главную</a>
+          <a href="{{ url_for('index_view') }}">Back to homepage</a>
         </p>
       </div>
       <div class="col-12 col-lg-5">

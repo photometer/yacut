@@ -1,9 +1,9 @@
 def test_404(client):
     got = client.get('/enexpected')
     assert got.status_code == 404, (
-        'При обращении к несуществующей странице возвращайте статуc-код `404`'
+        'Return status code `404` when accessing non-existent page'
     )
     assert (
         'If you entered the URL manually please check your spelling and try again.'
         not in got.data.decode('utf-8')
-    ), 'Добавьте обработку обращения к несуществующим страницам. Вам пригодится шаблон 404.html'
+    ), 'Add handling of access to non-existent pages. You will need a 404.html template'
